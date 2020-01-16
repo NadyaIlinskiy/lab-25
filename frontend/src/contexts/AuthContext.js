@@ -10,6 +10,7 @@ const [state, setState] = useState( {
     email:'',
     token:'',
     role:'',
+    roleEntry: '',
     update:(key, val) => {
         setState(state => {
             let newState = {...state};
@@ -33,6 +34,38 @@ const [state, setState] = useState( {
 
         let body = await response.json();
         console.log(body);
+
+        setState(state => ({
+            ...state,
+            token: body.token,
+            role: body.role,
+            password: '',
+        }));
+    },
+ 
+    signup: async (username, password, email, role) => {
+
+        const basicAuth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
+
+        //http request
+        const api = 'http://localhost:3000/signup';
+        const body ={
+            username: username,
+            password: password,
+            email: email,
+            role: role
+        };
+
+        let response = await fetch(api, {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+        let json = await response.json();
+        console.log(json);
 
         setState(state => ({
             ...state,
