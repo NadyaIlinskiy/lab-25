@@ -27,7 +27,7 @@ function Login(props) {
             }}
             
             />
-            <button onClick={()=>{
+            <button className='btn btn-success' onClick={()=>{
                 auth.signin(auth.username, auth.password);
             }} > Sign In </button>
     </div>
