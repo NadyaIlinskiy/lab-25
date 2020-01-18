@@ -18,6 +18,9 @@ const [state, setState] = useState( {
             return newState;
         })
     },
+    clear:() =>{
+       setState({...state});
+    },
     signin: async (username, password) => {
 
         const basicAuth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
@@ -73,6 +76,40 @@ const [state, setState] = useState( {
             role: body.role,
             password: '',
         }));
+    }, getBooks: async token => {
+        //http request
+        const api = 'http://localhost:3000/books';
+
+        let response = await fetch(api, {
+            method: 'GET',
+            headers: {
+                Authorization: token
+            },
+        });
+
+        let json = await response.json();
+        console.log(json);
+
+      return json;
+    },
+    addBook: async (title, author, roles, token)=> {
+        const api = 'http://localhost:3000/books';
+        const body = {
+            title: title,
+            author: author,
+            auth: roles
+        };
+        let response = await fetch(api, {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: token
+            },
+        });
+        let json = await response.json();
+        console.log(json);
+        return json;
     }
 });
  

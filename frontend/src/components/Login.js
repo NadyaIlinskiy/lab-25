@@ -1,13 +1,17 @@
 import React, {useContext} from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import FormInput from '../form-elements/FormInput';
+import AuthViewer from '../components/AuthViewer'
 
 
 function Login(props) {
     const auth = useContext(AuthContext);
     console.log(auth);
-    return (
-    <div >
+
+    // being logged in = i have a token
+
+    return <div> <AuthViewer invert={true}>
+            <div >
             <h1>Login</h1>
             <FormInput 
             type = 'text'
@@ -52,10 +56,16 @@ function Login(props) {
             <button className='btn btn-success' onClick={() => {
                 auth.signup(auth.username, auth.password, auth.email, auth.roleEntry);
             }} > Sign Un </button>
-        </div>
-
- 
-    )
+            </div> 
+            </AuthViewer>
+            <AuthViewer >
+            <button onClick= {()=>
+           {
+                auth.clear();
+           }}
+            >Log Out</button>
+            </AuthViewer >
+    </div>
 }
 
 export default Login;
