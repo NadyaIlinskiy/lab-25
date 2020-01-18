@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Links and Resources
 
-- [Code SendBox](https://)
-- [Netlify](https://)
+- [Code SendBox](https://codesandbox.io/s/gifted-ives-ikxmy)
+- [Netlify](https://csb-ikxmy.netlify.com)
 
 ### Modules
 

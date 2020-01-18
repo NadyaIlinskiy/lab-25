@@ -26,7 +26,7 @@ const [state, setState] = useState( {
         const basicAuth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
 
         //http request
-        const api = 'http://localhost:3000/signin';
+        const api = 'https://js401n14-lab25.herokuapp.com/signin';
 
         let response = await fetch (api, {
             method: 'POST',
@@ -51,7 +51,7 @@ const [state, setState] = useState( {
         const basicAuth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
 
         //http request
-        const api = 'http://localhost:3000/signup';
+        const api = 'https://js401n14-lab25.herokuapp.com/signup';
         const body ={
             username: username,
             password: password,
@@ -78,7 +78,7 @@ const [state, setState] = useState( {
         }));
     }, getBooks: async token => {
         //http request
-        const api = 'http://localhost:3000/books';
+        const api = 'https://js401n14-lab25.herokuapp.com/books';
 
         let response = await fetch(api, {
             method: 'GET',
@@ -93,7 +93,7 @@ const [state, setState] = useState( {
       return json;
     },
     addBook: async (title, author, roles, token)=> {
-        const api = 'http://localhost:3000/books';
+        const api = 'https://js401n14-lab25.herokuapp.com/books';
         const body = {
             title: title,
             author: author,
