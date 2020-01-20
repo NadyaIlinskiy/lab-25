@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+
+body {
+    background-color: $background-color;
+    .bio {
+        text-align: justify;
+        width: 98%;       
+}
+.img{
+    width: 200px;
+    float: right;
+    margin: 10px;
+}
+.my-text-primary{
+    color: $my-text-primary;
+}
+  p, label {
+      padding: $spacer !important; 
+    } 
+}
