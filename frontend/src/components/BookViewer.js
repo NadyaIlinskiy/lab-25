@@ -6,20 +6,17 @@ function BookViewer(props){
     const auth = useContext(AuthContext);
     function useGetBooks(){
         const [books, setBooks] = useState([]);
-        let count = [];
         count.push(books.length);
         useEffect(() => {
           const get = async () => {
             setBooks(await auth.getBooks(auth.token));
         };
         get();
-        }, count);
+        });
         return books;
     }
     
     const books = useGetBooks();
-    console.log(books);
-    console.log(books.length);
   
     return (
     <div> 
